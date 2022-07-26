@@ -1,11 +1,11 @@
 import { Router } from 'express';
+import { privateRoute } from '../config/passport';
 import * as ApiController from '../controllers/apiController';
-import * as EmailController from '../controllers/emailController';
 
 const router = Router();
 
-router.get('/list', ApiController.list);
-
-router.post('/contato', EmailController.contato);
+router.post('/register', ApiController.register);
+router.post('/login',  ApiController.login);
+router.get('/list', privateRoute, ApiController.list);
 
 export default router;
